@@ -1,0 +1,44 @@
+name: actions
+
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      
+      - name: Hola
+        run: |
+          echo "Hola Mundo" >> hola.txt
+          cat hola.txt
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.1.0
+        with:
+          node-version: latest
+
+      - name: node version
+        run: node --version
+
+      - name: PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: node version
+        run: php --version
+         
+
+      
+
+
+            
