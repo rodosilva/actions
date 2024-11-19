@@ -1,0 +1,13 @@
+name: "My action"
+description: "Test my action"
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Hola Mundo
+      run: |
+        echo "Hola Mundo" >> hola.txt
+        cat hola.txt
+      shell: bash
+
