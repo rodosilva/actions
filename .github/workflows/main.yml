@@ -16,10 +16,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.2.2
       
-      - name: Hola
-        run: |
-          echo "Hola Mundo" >> hola.txt
-          cat hola.txt
+      - name: ls
+        uses: ./.github/actions/my-action
       
       - name: script
         run: |
