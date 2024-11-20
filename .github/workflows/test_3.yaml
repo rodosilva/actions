@@ -1,0 +1,24 @@
+name: Test_3
+
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    
+    env: 
+      MY_VAR: Mi variable desde Jobs
+
+    steps:
+      - name: Test
+        env:
+          MY_VAR_STEP: Mi variable desde Steps
+        run: |
+          echo "Valor $MY_VAR"
+          echo "Valor $MY_VAR_STEP"
