@@ -40,5 +40,11 @@ jobs:
       - name: Condicional
         if: steps.test-ssh-key.outcome == 'success'
         run: echo "Condicional SSH Key Success"
+
+      - name: Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifacts
+          path: artifact.json
       
 
