@@ -28,6 +28,7 @@ jobs:
         run: echo "Secret desde UI ${{ secrets.MY_SECRET }}"
 
       - name: SSH Key
+        id: test-ssh-Key
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_KEY }}" >> ~/.ssh/id_rsa
@@ -35,4 +36,9 @@ jobs:
           ssh-keyscan -H 127.0.1.1 >> ~/.ssh/known_hosts
           
           cat ~/.ssh/known_hosts
+
+      - name: Condicional
+        if: steps.test-ssh-key.outcome == 'success'
+        run: echo "Condicional SSH Key Success"
+      
 
