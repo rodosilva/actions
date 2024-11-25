@@ -23,3 +23,8 @@ jobs:
           echo "Valor $MY_VAR"
           echo "Valor $MY_VAR_STEP"
           echo "Valor ${{ vars.MY_VAR_SETTINGS }}"
+
+      - name: Secret
+          run: echo "Secret desde UI ${{ secrets.MY_SECRET }}"
+
+
