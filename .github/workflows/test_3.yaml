@@ -41,6 +41,9 @@ jobs:
         if: steps.test-ssh-key.outcome == 'success'
         run: echo "Condicional SSH Key Success"
 
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
       - name: Artifact
         uses: actions/upload-artifact@v3
         with:
