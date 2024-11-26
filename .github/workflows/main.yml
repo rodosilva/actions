@@ -25,3 +25,11 @@ jobs:
         run: |
           chmod +x script.sh
           ./script.sh
+
+      - name: Notification
+        uses: rtCamp/action-slack-notify@v2.3.2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.WEBHOOK_URL }}
+        with:
+          author_name: "Action"
+          fields: repo, message, commit, author, action, eventName
